@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <style>
+            #main {
+            width:260px;    
+            min-height:200px;
+            background-color:black;
+            margin:80px;
+            padding:5px;
+            border:2px groove orange;
+            margin-right:5px;
+            }
+            input{
+                width:50px;
+                height:30px;
+                font-size:18px;
+                margin:3px;
+            }
+            #tbox{
+                width:250px;
+                height:40px;
+                background-color:silver;
+                margin:6px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div id="main">
+            <form name="cal">
+                <input type="text" name="txtbox" placeholder="0" id=tbox> <br>
+                <input type="button" value="1" onclick="cal.txtbox.value+=1">
+                <input type="button" value="2" onclick="cal.txtbox.value+=2">
+                <input type="button" value="3" onclick="cal.txtbox.value+=3">
+                <input type="button" value="+" onclick="add()">
+                <br>
+                <input type="button" value="4" onclick="cal.txtbox.value+=4">
+                <input type="button" value="5" onclick="cal.txtbox.value+=5">
+                <input type="button" value="6" onclick="cal.txtbox.value+=6">
+                <input type="button" value="-" onclick="sub()">
+                <br>
+                <input type="button" value="7" onclick="cal.txtbox.value+=7">
+                <input type="button" value="8" onclick="cal.txtbox.value+=8">
+                <input type="button" value="9" onclick="cal.txtbox.value+=9">
+                <input type="button" value="/" onclick="div()">
+                <br>
+                <input type="button" value="c" onclick="cal.txtbox.value=''">
+                <input type="button" value="0" onclick="cal.txtbox.value+=0">
+                <input type="button" value="=" onclick="cal.txtbox.value=eval(cal.txtbox.value)">
+                <input type="button" value="x" onclick="mul()">
+                <br>
+            </form>
+        </div>
+        <script>
+            function add(){
+            var a=0,b=0;
+            a=cal.txtbox.value;
+            b=a.charAt(a.length-1);
+            if(b=='+' || b=='-' || b=='/' || b=='*'){
+                cal.txtbox.value=a.substring(0,a.length-1);
+                cal.txtbox.value+='+';
+            }
+            else{
+                cal.txtbox.value+='+';
+            }
+            }
+            function sub(){
+            var a=0,b=0;
+            a=cal.txtbox.value;
+            b=a.charAt(a.length-1);
+            if(b=='+' || b=='-' || b=='/' || b=='*'){
+                cal.txtbox.value=a.substring(0,a.length-1);
+                cal.txtbox.value+='-';
+            }
+            else{
+                cal.txtbox.value+='-';
+            }
+            }
+            function div(){
+            var a=0,b=0;
+            a=cal.txtbox.value;
+            b=a.charAt(a.length-1);
+            if(b=='+' || b=='-' || b=='/' || b=='*'){
+                cal.txtbox.value=a.substring(0,a.length-1);
+                cal.txtbox.value+='/';
+            }
+            else{
+                cal.txtbox.value+='/';
+            }
+            }
+            function mul(){
+            var a=0,b=0;
+            a=cal.txtbox.value;
+            b=a.charAt(a.length-1);
+            if(b=='+' || b=='-' || b=='/' || b=='*'){
+                cal.txtbox.value=a.substring(0,a.length-1);
+                cal.txtbox.value+='*';
+            }
+            else{
+                cal.txtbox.value+='*';
+            }
+            }
+        </script>
+    </body>
+</html>
